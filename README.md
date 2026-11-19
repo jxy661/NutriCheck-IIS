@@ -1,39 +1,125 @@
-# NutriCheck — Assignment 2 interaction prototype
+# NutriCheck — Assignment 2 Interaction Prototype
 
-**README prose word count (approx.):** 435.
+**README prose word count (approx.):** 510 words.
 
-## Status
+## 1. Project Status
 
-A local, standalone browser prototype supports choosing three scripted cases, inspecting a nutrition suggestion, editing food name and portion, recalculating illustrative totals, rejecting, confirming, receiving feedback and undoing a local save. The interface is functional. **Image recognition, confidence, nutrition estimates and case inputs are simulated.** There is no camera upload, calibrated model, API call, persistent storage or validated dietary guidance. A live vision-and-nutrition pipeline is planned only.
+NutriCheck is a browser-based interactive prototype developed for the Intelligent Interactive Systems module at the University of Birmingham.
 
-## Technology and file map
+The prototype explores how users can review, correct and control AI-generated food recognition and nutrition suggestions, particularly when predictions are uncertain or incorrect.
 
-- `index.html`: vanilla HTML/CSS/JavaScript; no package manager, external dependencies, network requests or AI model.
-- `architecture.svg`: component/control diagram with implemented, simulated and planned labels.
-- `storyboards.svg`: three illustrated scripted interactions.
-- `report.md` / `Assignment2_Report.docx`: project rationale and references.
-- `tests.md`: manual reproduction checklist and expected results.
+The implemented interface supports:
 
-## Run or inspect
+- Three predefined food recognition scenarios.
+- Displaying simulated food recognition and nutritional information.
+- Editing food names and portion sizes.
+- Proportional recalculation of illustrative nutritional values.
+- Accepting or rejecting suggestions.
+- Explicit save confirmation and undo functionality.
+- Contextual warnings for uncertain predictions.
 
-Download the folder, then open `index.html` in a modern browser (or serve it with `python3 -m http.server 8000` and visit `http://localhost:8000`). Choose cases A–C in the left panel. Edit portion size or name, confirm or reject, then test undo and reset. No API key is required or should be committed.
+**Current limitations:** Food recognition, confidence labels and nutritional estimates are simulated. The prototype does not use a live computer-vision model, nutritional database, camera input, external API or persistent storage.
 
-## Development record
+Future development could integrate image recognition, calibrated uncertainty estimates and validated nutritional information.
 
-1. **Scope decision:** Reduced Assignment 1's ambitious adaptive visual diet tracker to a reproducible human-control prototype. Reason: avoid unverified claims about visual volume, model confidence and dietary accuracy.
-2. **Scenario fixtures:** Added three deterministic cases to expose high-reliability review, ambiguous ingredients and erroneous classification. Checked that cases display distinct warnings and state.
-3. **Review and repair:** Added visible name/grams fields, proportional illustrative recalculation, reject, explicit save, confirmation message and undo. Checked the local interaction steps described in `tests.md`.
-4. **Boundary and documentation:** Added prominent simulation warnings, a diagram with dashed planned API integration, storyboards and report. Checked that no image is uploaded and no external request appears in the source.
+## 2. Technology Stack
 
-This development record describes design stages, **not a fabricated chronological Git history**. If uploading to GitHub, create genuine commits and link the actual final hash here.
+- **HTML5:** Interface structure and interactive forms.
+- **CSS3:** Visual layout, feedback and responsive presentation.
+- **JavaScript:** Scenario selection, input handling, nutritional recalculation and interaction state management.
+- **SVG:** System architecture diagram and interaction storyboards.
+- **AI tools:** ChatGPT assisted with prototype development, documentation and design illustrations.
 
-## AI assistance and verification
+The prototype requires no external libraries, API keys or installation of additional packages.
 
-ChatGPT was used to support prototype development and preparation of the diagrams, report, documentation and example test scenarios. The project distinguishes functional browser interactions from simulated AI outputs and future integrations. Before submission, the prototype interactions, technical descriptions, references and diagrams should be checked against the actual files and test results; any corrections made during this review should be documented. The nutrition values are illustrative, not validated dietary advice.
+## 3. Project Files
 
-## Publication information (complete after publication)
+| File | Description |
+|---|---|
+| `index.html` | Functional interactive prototype |
+| `architecture.svg` | System architecture and information flow |
+| `storyboards.svg` | Three illustrated interaction scenarios |
+| `tests.md` | Manual testing checklist and expected results |
+| `report.md` | Assignment 2 report and references |
 
-- Public repository: **[ADD REAL URL]**
-- README URL: **[ADD REAL URL]**
-- Submitted commit or release: **[ADD REAL HASH OR RELEASE TAG]**
-- No additional ZIP is needed once all project files are in the repository.
+## 4. How to Run
+
+1. Download or clone this GitHub repository.
+2. Open `index.html` in a modern web browser.
+3. Select Scenario A, B or C.
+4. Review the simulated food suggestion.
+5. Modify the food name or portion size.
+6. Confirm, reject, undo or reset the interaction.
+
+Alternatively, run a local HTTP server:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
+
+No API key is required.
+
+## 5. Development Record
+
+**Stage 1 — Project scope**
+
+The initial proposal from Assignment 1 focused on adaptive confidence-driven nutrition tracking. The scope was narrowed to an interactive prototype demonstrating user control and error recovery without claiming validated AI prediction accuracy.
+
+**Stage 2 — Scenario development**
+
+Three deterministic scenarios were created to represent different interaction conditions:
+
+- Scenario A: Higher-reliability food suggestion.
+- Scenario B: Uncertainty caused by potentially hidden ingredients.
+- Scenario C: Incorrect suggested food classification.
+
+Each scenario provides distinct interface feedback.
+
+**Stage 3 — Interaction design**
+
+Editable food labels and portion sizes were introduced alongside explicit confirmation, rejection and undo actions. These choices support user control, visibility of system status and recovery from incorrect AI suggestions.
+
+**Stage 4 — System documentation**
+
+The architecture diagram distinguishes implemented interface behaviour, simulated AI functionality and planned integrations. Three storyboards illustrate how users interact with the system.
+
+**Stage 5 — Manual interaction verification (19 November 2026)**
+
+The browser prototype was manually tested using its predefined scenarios.
+
+| Test | Observed result | Status |
+|---|---|---|
+| Scenario B: Change portion from 230 g to 300 g | Illustrative nutritional values updated | PASS |
+| Scenario C: Change food label to Beef noodles | Updated name appeared in save confirmation | PASS |
+| Scenario C: Reject suggestion | System confirmed that no meal was saved | PASS |
+| Scenario C: Undo previous save | System confirmed that the local save was undone | PASS |
+
+These checks support the implemented interaction behaviour. They do not validate AI recognition accuracy or nutritional estimates.
+
+## 6. AI Assistance and Verification
+
+ChatGPT was used to assist with prototype development, interface implementation, system diagrams, storyboards, report preparation and documentation.
+
+The generated materials were reviewed through manual interaction testing. The portion-editing, correction, rejection and undo behaviours described above were checked in the browser.
+
+The system distinguishes simulated AI outputs from functional interaction controls. Nutritional values and reliability labels are illustrative and should not be used for real dietary decisions.
+
+## 7. Publication Information
+
+**Public GitHub repository:**
+
+https://github.com/jxy661/NutriCheck-IIS
+
+**README:**
+
+https://github.com/jxy661/NutriCheck-IIS/blob/main/README.md
+
+**Initial project commit:**
+
+`77670502076997fcfcdfee049a135a7e1b044930`
+
+**Submitted final commit:** To be recorded after final documentation updates.
+
+All necessary prototype and documentation files are maintained in the repository. No additional ZIP is required for the current project.
